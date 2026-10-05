@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Grãos</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+            color: #1f2937;
+        }
+
+        header {
+            background: #1f4d2e;
+            color: white;
+            padding: 20px 30px;
+        }
+
+        header h1 {
+            font-size: 26px;
+        }
+
+        header p {
+            margin-top: 5px;
+            opacity: 0.85;
+        }
+
+        nav {
+            background: white;
+            padding: 15px 30px;
+            display: flex;
+            gap: 10px;
+            border-bottom: 1px solid #ddd;
+            flex-wrap: wrap;
+        }
+
+        nav button {
+            border: none;
+            background: #e8f0ea;
+            color: #1f4d2e;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        nav button:hover {
+            background: #1f4d2e;
+            color: white;
+        }
+
+        main {
+            padding: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .titulo {
+            margin-bottom: 25px;
+        }
+
+        .titulo h2 {
+            font-size: 28px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            color: #1f4d2e;
+            margin-bottom: 10px;
+        }
+
+        .valor {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌾 Sistema de Grãos</h1>
+    <p>Gestão e controle de armazenamento de grãos</p>
+</header>
+
+<nav>
+    <button>Dashboard</button>
+    <button>Recebimento</button>
+    <button>Estoque</button>
+    <button>Clientes</button>
+    <button>Produtores</button>
+    <button>Vendas</button>
+    <button>Financeiro</button>
+    <button>Relatórios</button>
+</nav>
+
+<main>
+
+    <div class="titulo">
+        <h2>Dashboard</h2>
+        <p>Visão geral da operação</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Estoque atual</h3>
+            <div class="valor">0 kg</div>
+        </div>
+
+        <div class="card">
+            <h3>Recebimentos hoje</h3>
+            <div class="valor">0</div>
+        </div>
+
+        <div class="card">
+            <h3>Vendas pendentes</h3>
+            <div class="valor">0</div>
+        </div>
+
+        <div class="card">
+            <h3>Contas a receber</h3>
+            <div class="valor">R$ 0,00</div>
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    Sistema de Grãos — Agropecuária Ceron
+</footer>
+
+</body>
+</html>

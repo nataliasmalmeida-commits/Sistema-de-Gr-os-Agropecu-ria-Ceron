@@ -1,106 +1,244 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Grãos</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Grãos - Agropecuária Ceron</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
-        body {
-            background: #f4f6f8;
-            color: #1f2937;
-        }
+body {
+    background: #f3f5f4;
+    color: #1f2937;
+}
 
-        header {
-            background: #1f4d2e;
-            color: white;
-            padding: 20px 30px;
-        }
+header {
+    background: #174d2b;
+    color: white;
+    padding: 22px 30px;
+}
 
-        header h1 {
-            font-size: 26px;
-        }
+header h1 {
+    font-size: 27px;
+}
 
-        header p {
-            margin-top: 5px;
-            opacity: 0.85;
-        }
+header p {
+    margin-top: 5px;
+    opacity: .9;
+}
 
-        nav {
-            background: white;
-            padding: 15px 30px;
-            display: flex;
-            gap: 10px;
-            border-bottom: 1px solid #ddd;
-            flex-wrap: wrap;
-        }
+nav {
+    background: white;
+    padding: 14px 30px;
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ddd;
+}
 
-        nav button {
-            border: none;
-            background: #e8f0ea;
-            color: #1f4d2e;
-            padding: 10px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+nav button {
+    border: 0;
+    padding: 11px 17px;
+    border-radius: 7px;
+    background: #e6eee8;
+    color: #174d2b;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-        nav button:hover {
-            background: #1f4d2e;
-            color: white;
-        }
+nav button:hover,
+nav button.ativo {
+    background: #174d2b;
+    color: white;
+}
 
-        main {
-            padding: 30px;
-            max-width: 1200px;
-            margin: auto;
-        }
+main {
+    max-width: 1250px;
+    margin: auto;
+    padding: 30px;
+}
 
-        .titulo {
-            margin-bottom: 25px;
-        }
+.secao {
+    display: none;
+}
 
-        .titulo h2 {
-            font-size: 28px;
-        }
+.secao.ativa {
+    display: block;
+}
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
+.titulo {
+    margin-bottom: 25px;
+}
 
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
+.titulo h2 {
+    font-size: 28px;
+    color: #174d2b;
+}
 
-        .card h3 {
-            color: #1f4d2e;
-            margin-bottom: 10px;
-        }
+.titulo p {
+    margin-top: 5px;
+    color: #666;
+}
 
-        .valor {
-            font-size: 28px;
-            font-weight: bold;
-        }
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
 
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            padding: 20px;
-            color: #777;
-        }
-    </style>
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 23px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.card h3 {
+    color: #174d2b;
+    margin-bottom: 12px;
+}
+
+.valor {
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.botao-principal {
+    background: #174d2b;
+    color: white;
+    border: 0;
+    padding: 12px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.botao-principal:hover {
+    background: #0f391f;
+}
+
+.formulario {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.grid-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.campo textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.campo.completo {
+    grid-column: 1 / -1;
+}
+
+.resultado {
+    margin-top: 22px;
+    background: #edf5ef;
+    border-left: 5px solid #174d2b;
+    padding: 18px;
+    border-radius: 6px;
+}
+
+.resultado-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.resultado-item span {
+    display: block;
+    color: #666;
+    font-size: 13px;
+}
+
+.resultado-item strong {
+    display: block;
+    font-size: 20px;
+    margin-top: 4px;
+    color: #174d2b;
+}
+
+.tabela-container {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    white-space: nowrap;
+}
+
+th {
+    background: #edf2ee;
+    color: #174d2b;
+}
+
+.vazio {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+}
+
+@media(max-width: 700px) {
+    .grid-form,
+    .resultado-grid {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        padding: 18px;
+    }
+}
+</style>
 </head>
 
 <body>
@@ -111,17 +249,20 @@
 </header>
 
 <nav>
-    <button>Dashboard</button>
-    <button>Recebimento</button>
-    <button>Estoque</button>
-    <button>Clientes</button>
-    <button>Produtores</button>
-    <button>Vendas</button>
-    <button>Financeiro</button>
-    <button>Relatórios</button>
+    <button class="ativo" onclick="abrirSecao('dashboard', this)">Dashboard</button>
+    <button onclick="abrirSecao('recebimento', this)">Recebimento</button>
+    <button onclick="abrirSecao('estoque', this)">Estoque</button>
+    <button onclick="abrirSecao('clientes', this)">Clientes</button>
+    <button onclick="abrirSecao('produtores', this)">Produtores</button>
+    <button onclick="abrirSecao('vendas', this)">Vendas</button>
+    <button onclick="abrirSecao('financeiro', this)">Financeiro</button>
+    <button onclick="abrirSecao('relatorios', this)">Relatórios</button>
 </nav>
 
 <main>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="secao ativa">
 
     <div class="titulo">
         <h2>Dashboard</h2>
@@ -132,12 +273,12 @@
 
         <div class="card">
             <h3>Estoque atual</h3>
-            <div class="valor">0 kg</div>
+            <div class="valor" id="dashboardEstoque">0 kg</div>
         </div>
 
         <div class="card">
             <h3>Recebimentos hoje</h3>
-            <div class="valor">0</div>
+            <div class="valor" id="dashboardRecebimentos">0</div>
         </div>
 
         <div class="card">
@@ -152,11 +293,512 @@
 
     </div>
 
+</section>
+
+
+<!-- RECEBIMENTO -->
+<section id="recebimento" class="secao">
+
+    <div class="titulo">
+        <h2>Recebimento de Grãos</h2>
+        <p>Registre a entrada de grãos na unidade.</p>
+    </div>
+
+    <div class="formulario">
+
+        <div class="grid-form">
+
+            <div class="campo">
+                <label>Data</label>
+                <input type="date" id="data">
+            </div>
+
+            <div class="campo">
+                <label>Nº do Romaneio</label>
+                <input type="text" id="romaneio" placeholder="Ex.: 000001">
+            </div>
+
+            <div class="campo">
+                <label>Produtor</label>
+                <input type="text" id="produtor" placeholder="Nome do produtor">
+            </div>
+
+            <div class="campo">
+                <label>Cliente / Proprietário</label>
+                <input type="text" id="cliente" placeholder="Nome do cliente">
+            </div>
+
+            <div class="campo">
+                <label>Tipo de grão</label>
+                <select id="grao">
+                    <option value="">Selecione</option>
+                    <option>Soja</option>
+                    <option>Milho</option>
+                    <option>Trigo</option>
+                    <option>Arroz</option>
+                    <option>Feijão</option>
+                    <option>Outro</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label>Placa do veículo</label>
+                <input type="text" id="placa" placeholder="ABC-1234">
+            </div>
+
+            <div class="campo">
+                <label>Peso bruto (kg)</label>
+                <input type="number" id="bruto" min="0" step="0.01" oninput="calcular()">
+            </div>
+
+            <div class="campo">
+                <label>Tara (kg)</label>
+                <input type="number" id="tara" min="0" step="0.01" oninput="calcular()">
+            </div>
+
+            <div class="campo">
+                <label>Umidade (%)</label>
+                <input type="number" id="umidade" min="0" step="0.01" oninput="calcular()">
+            </div>
+
+            <div class="campo">
+                <label>Impureza (%)</label>
+                <input type="number" id="impureza" min="0" step="0.01" oninput="calcular()">
+            </div>
+
+            <div class="campo">
+                <label>Desconto adicional (%)</label>
+                <input type="number" id="desconto" min="0" step="0.01" value="0" oninput="calcular()">
+            </div>
+
+            <div class="campo">
+                <label>Silo / Armazém</label>
+                <input type="text" id="silo" placeholder="Ex.: Silo 01">
+            </div>
+
+            <div class="campo completo">
+                <label>Observações</label>
+                <textarea id="observacoes" placeholder="Informações adicionais"></textarea>
+            </div>
+
+        </div>
+
+        <div class="resultado">
+
+            <div class="resultado-grid">
+
+                <div class="resultado-item">
+                    <span>Peso líquido</span>
+                    <strong id="pesoLiquido">0 kg</strong>
+                </div>
+
+                <div class="resultado-item">
+                    <span>Desconto total</span>
+                    <strong id="descontoTotal">0 kg</strong>
+                </div>
+
+                <div class="resultado-item">
+                    <span>Peso líquido final</span>
+                    <strong id="pesoFinal">0 kg</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <button class="botao-principal" onclick="salvarRecebimento()">
+            💾 Salvar recebimento
+        </button>
+
+    </div>
+
+    <br>
+
+    <div class="tabela-container">
+
+        <h3 style="margin-bottom:15px;color:#174d2b;">
+            Recebimentos registrados
+        </h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Romaneio</th>
+                    <th>Produtor</th>
+                    <th>Grão</th>
+                    <th>Placa</th>
+                    <th>Peso Final</th>
+                </tr>
+            </thead>
+
+            <tbody id="tabelaRecebimentos">
+            </tbody>
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- ESTOQUE -->
+<section id="estoque" class="secao">
+
+    <div class="titulo">
+        <h2>Estoque</h2>
+        <p>Controle dos grãos armazenados.</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Estoque total</h3>
+            <div class="valor" id="estoqueTotal">0 kg</div>
+        </div>
+
+        <div class="card">
+            <h3>Soja</h3>
+            <div class="valor">0 kg</div>
+        </div>
+
+        <div class="card">
+            <h3>Milho</h3>
+            <div class="valor">0 kg</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CLIENTES -->
+<section id="clientes" class="secao">
+
+    <div class="titulo">
+        <h2>Clientes</h2>
+        <p>Cadastro de clientes.</p>
+    </div>
+
+    <div class="card">
+        <p>O cadastro de clientes será desenvolvido na próxima etapa.</p>
+    </div>
+
+</section>
+
+
+<!-- PRODUTORES -->
+<section id="produtores" class="secao">
+
+    <div class="titulo">
+        <h2>Produtores</h2>
+        <p>Cadastro de produtores.</p>
+    </div>
+
+    <div class="card">
+        <p>O cadastro de produtores será desenvolvido na próxima etapa.</p>
+    </div>
+
+</section>
+
+
+<!-- VENDAS -->
+<section id="vendas" class="secao">
+
+    <div class="titulo">
+        <h2>Vendas</h2>
+        <p>Controle das vendas de grãos.</p>
+    </div>
+
+    <div class="card">
+        <p>O módulo de vendas será desenvolvido após o estoque.</p>
+    </div>
+
+</section>
+
+
+<!-- FINANCEIRO -->
+<section id="financeiro" class="secao">
+
+    <div class="titulo">
+        <h2>Financeiro</h2>
+        <p>Controle financeiro da operação.</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Contas a receber</h3>
+            <div class="valor">R$ 0,00</div>
+        </div>
+
+        <div class="card">
+            <h3>Contas pagas</h3>
+            <div class="valor">R$ 0,00</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RELATÓRIOS -->
+<section id="relatorios" class="secao">
+
+    <div class="titulo">
+        <h2>Relatórios</h2>
+        <p>Relatórios da operação.</p>
+    </div>
+
+    <div class="card">
+        <p>Os relatórios serão adicionados conforme os módulos forem desenvolvidos.</p>
+    </div>
+
+</section>
+
 </main>
 
 <footer>
     Sistema de Grãos — Agropecuária Ceron
 </footer>
+
+
+<script>
+
+let recebimentos = JSON.parse(
+    localStorage.getItem("recebimentosGraos") || "[]"
+);
+
+function abrirSecao(id, botao) {
+
+    document.querySelectorAll(".secao").forEach(secao => {
+        secao.classList.remove("ativa");
+    });
+
+    document.getElementById(id).classList.add("ativa");
+
+    document.querySelectorAll("nav button").forEach(btn => {
+        btn.classList.remove("ativo");
+    });
+
+    botao.classList.add("ativo");
+
+    atualizarDashboard();
+}
+
+
+function calcular() {
+
+    const bruto = Number(document.getElementById("bruto").value) || 0;
+    const tara = Number(document.getElementById("tara").value) || 0;
+    const umidade = Number(document.getElementById("umidade").value) || 0;
+    const impureza = Number(document.getElementById("impureza").value) || 0;
+    const desconto = Number(document.getElementById("desconto").value) || 0;
+
+    const liquido = Math.max(bruto - tara, 0);
+
+    const percentualDesconto =
+        (umidade + impureza + desconto) / 100;
+
+    const descontoKg =
+        liquido * percentualDesconto;
+
+    const final =
+        Math.max(liquido - descontoKg, 0);
+
+    document.getElementById("pesoLiquido").textContent =
+        formatarKg(liquido);
+
+    document.getElementById("descontoTotal").textContent =
+        formatarKg(descontoKg);
+
+    document.getElementById("pesoFinal").textContent =
+        formatarKg(final);
+}
+
+
+function formatarKg(valor) {
+
+    return valor.toLocaleString("pt-BR", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }) + " kg";
+}
+
+
+function salvarRecebimento() {
+
+    const data = document.getElementById("data").value;
+    const romaneio = document.getElementById("romaneio").value.trim();
+    const produtor = document.getElementById("produtor").value.trim();
+    const cliente = document.getElementById("cliente").value.trim();
+    const grao = document.getElementById("grao").value;
+    const placa = document.getElementById("placa").value.trim();
+    const silo = document.getElementById("silo").value.trim();
+    const observacoes = document.getElementById("observacoes").value.trim();
+
+    const bruto = Number(document.getElementById("bruto").value) || 0;
+    const tara = Number(document.getElementById("tara").value) || 0;
+    const umidade = Number(document.getElementById("umidade").value) || 0;
+    const impureza = Number(document.getElementById("impureza").value) || 0;
+    const desconto = Number(document.getElementById("desconto").value) || 0;
+
+    if (!data || !produtor || !grao || bruto <= 0) {
+        alert(
+            "Preencha pelo menos Data, Produtor, Tipo de grão e Peso bruto."
+        );
+        return;
+    }
+
+    const liquido = Math.max(bruto - tara, 0);
+
+    const descontoKg =
+        liquido * ((umidade + impureza + desconto) / 100);
+
+    const pesoFinal =
+        Math.max(liquido - descontoKg, 0);
+
+    const recebimento = {
+
+        id: Date.now(),
+
+        data,
+        romaneio,
+        produtor,
+        cliente,
+        grao,
+        placa,
+        silo,
+        observacoes,
+
+        bruto,
+        tara,
+        umidade,
+        impureza,
+        desconto,
+
+        liquido,
+        descontoKg,
+        pesoFinal
+    };
+
+    recebimentos.push(recebimento);
+
+    localStorage.setItem(
+        "recebimentosGraos",
+        JSON.stringify(recebimentos)
+    );
+
+    alert("Recebimento registrado com sucesso!");
+
+    limparFormulario();
+    carregarTabela();
+    atualizarDashboard();
+}
+
+
+function limparFormulario() {
+
+    document.getElementById("romaneio").value = "";
+    document.getElementById("produtor").value = "";
+    document.getElementById("cliente").value = "";
+    document.getElementById("grao").value = "";
+    document.getElementById("placa").value = "";
+    document.getElementById("bruto").value = "";
+    document.getElementById("tara").value = "";
+    document.getElementById("umidade").value = "";
+    document.getElementById("impureza").value = "";
+    document.getElementById("desconto").value = "0";
+    document.getElementById("silo").value = "";
+    document.getElementById("observacoes").value = "";
+
+    document.getElementById("pesoLiquido").textContent = "0 kg";
+    document.getElementById("descontoTotal").textContent = "0 kg";
+    document.getElementById("pesoFinal").textContent = "0 kg";
+}
+
+
+function carregarTabela() {
+
+    const tabela =
+        document.getElementById("tabelaRecebimentos");
+
+    if (recebimentos.length === 0) {
+
+        tabela.innerHTML = `
+            <tr>
+                <td colspan="6" class="vazio">
+                    Nenhum recebimento registrado.
+                </td>
+            </tr>
+        `;
+
+        return;
+    }
+
+    tabela.innerHTML = recebimentos
+        .slice()
+        .reverse()
+        .map(item => {
+
+            return `
+                <tr>
+                    <td>${formatarData(item.data)}</td>
+                    <td>${item.romaneio || "-"}</td>
+                    <td>${item.produtor}</td>
+                    <td>${item.grao}</td>
+                    <td>${item.placa || "-"}</td>
+                    <td>${formatarKg(item.pesoFinal)}</td>
+                </tr>
+            `;
+
+        }).join("");
+}
+
+
+function formatarData(data) {
+
+    if (!data) return "-";
+
+    const partes = data.split("-");
+
+    return `${partes[2]}/${partes[1]}/${partes[0]}`;
+}
+
+
+function atualizarDashboard() {
+
+    const total = recebimentos.reduce(
+        (soma, item) => soma + Number(item.pesoFinal || 0),
+        0
+    );
+
+    document.getElementById("dashboardEstoque").textContent =
+        formatarKg(total);
+
+    document.getElementById("estoqueTotal").textContent =
+        formatarKg(total);
+
+    const hoje = new Date()
+        .toISOString()
+        .split("T")[0];
+
+    const hojeQuantidade =
+        recebimentos.filter(item => item.data === hoje).length;
+
+    document.getElementById("dashboardRecebimentos").textContent =
+        hojeQuantidade;
+}
+
+
+document.getElementById("data").value =
+    new Date().toISOString().split("T")[0];
+
+carregarTabela();
+atualizarDashboard();
+
+</script>
 
 </body>
 </html>

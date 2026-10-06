@@ -291,7 +291,8 @@ footer {
             <div class="valor">R$ 0,00</div>
         </div>
 
-    </div>
+    <div class="card" id="estoquePorProdutor">
+</div>
 
 </section>
 
@@ -782,6 +783,31 @@ function atualizarDashboard() {
 
     document.getElementById("dashboardEstoque").textContent =
         formatarKg(total);
+    const estoquePorProdutor = document.getElementById("estoquePorProdutor");
+
+if (estoquePorProdutor) {
+    const resumo = {};
+
+    recebimentos.forEach(item => {
+        const produtor = item.produtor || "Não informado";
+        const grao = item.grao || "Não informado";
+        const chave = produtor + " - " + grao;
+
+        resumo[chave] = (resumo[chave] || 0) + Number(item.pesoFinal || 0);
+    });
+
+    let html = "<h3>Estoque por produtor</h3>";
+
+    if (Object.keys(resumo).length === 0) {
+        html += "<p>Nenhum estoque registrado.</p>";
+    } else {
+        Object.entries(resumo).forEach(([chave, quantidade]) => {
+            html += "<p><strong>" + chave + "</strong>: " + formatarKg(quantidade) + "</p>";
+        });
+    }
+
+    estoquePorProdutor.innerHTML = html;
+}
 
     document.getElementById("estoqueTotal").textContent =
         formatarKg(total);
